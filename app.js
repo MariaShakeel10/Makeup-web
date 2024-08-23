@@ -203,7 +203,7 @@ function search() {
     const item = document.getElementById('item').value;
     const mainSection = document.getElementById('main');
     const secondSection = document.getElementById('second');
-    const banner =document.getElementById("carouselExampleInterval")
+    let banner =document.getElementById("carouselExampleInterval")
     banner.innerHTML='';
     mainSection.innerHTML = ''; // Clear previous results
     secondSection.innerHTML = ''; // Clear previous results
