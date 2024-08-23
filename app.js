@@ -137,6 +137,31 @@ for (const key in makeup_products) {
 </div>`
     }
 }
+function returnToMain (){
+    for (const key in makeup_products) {
+        let allProductsBrand = makeup_products[key];
+        // brand.innerHTML += `<option value="${key}">${key}</option>`
+        for (const key1 in makeup_products[key]) {
+            let allProducts = makeup_products[key][key1];
+            for (let i = 0; i < idImg.length; i++) {
+                allProducts.span = idImg[i]
+            }
+            for (let i = 0; i < idColor.length; i++) {
+                allProducts.class = idColor[i]
+            }
+    
+            main.innerHTML += `<div class="card text-center" style="width: 18rem;">
+      <img src="${allProducts.img}" id="${allProducts.class}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${allProducts.name}</h5>
+        <p class="card-text">Price: ${allProducts.price}$</p>
+        <div id="color ${allProducts.span}"></div>
+        <a href="#" class="btn btn-primary">Add To Cart</a>
+      </div>
+    </div>`
+        }
+    }
+}
 
 // serach event 
 function itemsDisplay() {
@@ -178,6 +203,8 @@ function search() {
     const item = document.getElementById('item').value;
     const mainSection = document.getElementById('main');
     const secondSection = document.getElementById('second');
+    const banner =document.getElementById("carouselExampleInterval")
+    banner.innerHTML='';
     mainSection.innerHTML = ''; // Clear previous results
     secondSection.innerHTML = ''; // Clear previous results
 
@@ -217,6 +244,9 @@ function createProductCard(img, name, price) {
     const cardText = document.createElement('p');
     cardText.className = 'card-text';
     cardText.textContent = `$${price.toFixed(2)}`;
+    const cardBtn =document.createElement('button')
+    cardBtn.className="btn btn-primary"
+    cardBtn.innerText="Add to cart"
 
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
@@ -225,3 +255,6 @@ function createProductCard(img, name, price) {
 
     return card;
 } 
+// let selectColor = document.getElementById("color")
+// let lipstickMac=document.getElementById("one").innerHTML +=`<span class="red"></span><span class="pink"></span><span class="brown"></span>`
+
