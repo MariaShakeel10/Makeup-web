@@ -138,6 +138,7 @@ for (const key in makeup_products) {
     }
 }
 function returnToMain (){
+    
     for (const key in makeup_products) {
         let allProductsBrand = makeup_products[key];
         // brand.innerHTML += `<option value="${key}">${key}</option>`
